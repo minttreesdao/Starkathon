@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { FC } from 'react';
 import networkExampleImg from '~/assets/images/wallet-network-example.png';
 import ConnectWallet from '~/components/ConnectWallet';
+// import Mint from '~/components/Mint';
 import getContractsAddresses from '~/hooks/GetContractsAddresses';
 
 type Props = {}
@@ -25,28 +26,23 @@ const Home: FC<Props & NextPage> = () => {
     return [(
       <div key="counter">
         <h4>
-          #1 Exercise
+        Purchase trees directly! You simply tell how many trees you would like to buy. Any impact purchased will be billed straight away. 
         </h4>
         {COUNTER_CONTRACT_ADDRESS ? (
           <Link key="counterButton" href="/counter">
             <a>Counter</a>
           </Link>
         ) : (
-          <p>After deploying the Counter contract in your local node make sure you past the address to <strong>constants/contracts.ts</strong></p>
+          <p>
+              <img src="https://c.pxhere.com/images/f7/29/1671d5404f1f057cdec39f918a9e-1632461.jpg!d" />
+          </p>
         )}
       </div>
-    ), (
+    )
+    ,
+     (
       <div key="rpc">
-        <h4>
-          #2 Exercise
-        </h4>
-        {RPS_CONTRACT_ADDRESS ? (
-          <Link key="rps" href="/rps">
-            <a>Rock Paper Scissors</a>
-          </Link>
-        ) : (
-          <p>After deploying the Rock Paper Scissors contract in your local node make sure you past the address to <strong>constants/contracts.ts</strong></p>
-        )}
+
       </div>
     )];
   };
@@ -65,10 +61,26 @@ const Home: FC<Props & NextPage> = () => {
       </>
     );
   };
+  //new
+  const renderConnectContent1 = () => {
+    return (
+      <>
+        <p>Do you have argent-x wallet extension installed? You'll need that to continue, here you have it:</p>
+        <a href="https://chrome.google.com/webstore/detail/argent-x-starknet-wallet/dlcobpjiigpikoobohmabehhmhfoodbb" target="_blank" className="download-button">
+          <img src="https://argentwebsite.cdn.prismic.io/argentwebsite/2a59b435-65f7-4fd5-962d-543ff6bbac5d_button-download-starknet.svg" alt="Download Argent X StarkNet browser wallet" />
+        </a>
+        <p>After that make sure you have an account deployed (yap, the wallet is a smart contract) and make sure you are in the right network:</p>
+        <Image src={networkExampleImg} alt="wallet network selector example" />
+        <p>And last but not least, connect your dApp to your wallet:</p>
+        <Mint />
+      </>
+    );
+  };
+  //endnew
   const renderDappContent = () => {
     return (
       <div>
-        <p>Starknet Account: { account }</p>
+        <p>Your account { account }</p>
         <div className="exercises-info">
           {renderExercisesButtons()}
         </div>
@@ -77,8 +89,14 @@ const Home: FC<Props & NextPage> = () => {
   };
   return (
     <section className="simple-container">
-      <h1>Starknet bootcamp :D</h1>
+      <h1>Mint trees</h1>
       {!!account ? renderDappContent() : renderConnectContent()}
+    </section>
+  )
+  return (
+    <section className="simple-container">
+      <h1>Mint trees</h1>
+      {!!account ? renderDappContent() : renderConnectContent1()}
     </section>
   )
 }
