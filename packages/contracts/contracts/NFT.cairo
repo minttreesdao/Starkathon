@@ -17,11 +17,14 @@ from openzeppelin.token.erc721.library import (
 
 #
 # Custom logic
+# Iex10b.change_secret_value(contract_address=ex10b_address, new_secret_value= next_secret_value_i_chose)
 #
 
 @storage_var
 func l1_contract_storage() -> (address : felt):
 end
+
+
 
 @storage_var
 func minter_storage() -> (game : felt):
@@ -42,12 +45,16 @@ func constructor{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_p
     return ()
 end
 
+
 @external
 func mint{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}(user : felt):
     #
     # TODO
-    #
-
+    # use transferFrom to get money
+    get the erc20 address
+    call the erc20 contract
+    # call mint()
+    ERC721_mint()
     return ()
 end
 
