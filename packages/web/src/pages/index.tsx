@@ -35,6 +35,7 @@ const Home: FC<Props & NextPage> = () => {
         ) : (
           <p>
               <img src="https://c.pxhere.com/images/f7/29/1671d5404f1f057cdec39f918a9e-1632461.jpg!d" />
+              <button> Mint your tree!</button>
           </p>
         )}
       </div>

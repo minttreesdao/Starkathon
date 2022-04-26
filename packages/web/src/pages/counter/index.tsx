@@ -32,13 +32,7 @@ const Counter: FC<Props> = ({ address }) => {
   };
   return (
     <section className="simple-container">
-      <h1>Counter</h1>
       <div>
-        <p>Value: {counterAmount?.toString()}</p>
-          <label className={Style.labelAmount}>
-            Increment amount:
-            <input className={Style.inputAmount} type="number" min="1" value={amount} onChange={(e) => setAmount(e.target.value)} />
-          </label>
         <PrimaryButton 
           loading={
             readLoading || 
@@ -49,7 +43,7 @@ const Counter: FC<Props> = ({ address }) => {
           } 
           onClick={handleOnIncrementClick}
         >
-          Increment
+          Mint
         </PrimaryButton>
       </div>
       {(!!readError || !!incError) &&

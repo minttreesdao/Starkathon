@@ -17,6 +17,8 @@ button {
 	padding: 18px 36px;
 	border-radius: 20px;
 	border: none;
+	margin: auto;
+	display: block;
 }
 
 .exercises-info {
